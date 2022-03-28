@@ -8,6 +8,10 @@
     justify-content: center;
 }
 
+form {
+    box-sizing: border-box;
+}
+
 .App {
     width: 800px;
 }
