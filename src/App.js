@@ -12,12 +12,37 @@ function App() {
     { id: 3, title: 'Java', body: 'Description' },
   ])
 
+  const [title, setTitle] = useState('')
+  const [body, setBody] = useState('')
+
+  const addNePost = (e) => {
+    e.preventDefault()
+    const newPost = {
+      id: Date.now(),
+      title,
+      body
+    }
+    console.log(newPost)
+    setPosts([...posts, newPost])
+  }
+
   return (
     <div className="App">
       <form>
-        <MyInput type="text" placeholder="Название поста" />
-        <MyInput type="text" placeholder="Описание поста" />
-        <MyButton>Создать пост</MyButton>
+        <MyInput
+          value={title}
+          onChange={e => setTitle(e.target.value)}
+          type="text"
+          placeholder="Название поста"
+        />
+        <MyInput
+          value={body}
+          onChange={e => setBody(e.target.value)}
+          type="text"
+          placeholder="Описание поста"
+
+        />
+        <MyButton onClick={addNePost}>Создать пост</MyButton>
       </form>
       <PostList posts={posts} title="Список постов" />
     </div>

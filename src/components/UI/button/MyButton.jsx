@@ -3,7 +3,8 @@ import classes from './MyButton.module.css';
 
 const MyButton = ({ children, ...props }) => {
     return (
-        <button className={classes.myBtn}>
+        <button onClick={props.onClick} className={classes.myBtn}>
+
             {children}
 
         </button>
